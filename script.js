@@ -7,7 +7,7 @@ const adj = Math.sqrt(pixels)
 //   "24/03/2022": [0, 8, 42, 36, 6, 12, 48, 40, 30, 32, 18, 16],
 // }
 
-import {games} from "/games.json";
+import {games} from "/dordle/games.json";
 
 const date = new Date()
 const today = date.toLocaleDateString('en-GB').toString();
