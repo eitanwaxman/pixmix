@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Pixmix</title>
+  </head>
+  <body>
+    <h1>Random PixMix</h1>
+    <div class="input-wrapper" id="input-wrapper" >
+      <p>Select a level</p>
+      <label for="grid-size">Enter a number for grid size</label>
+      <input class="input" id="grid-size" />
+      <label for="game-size">Enter a number for game size</label>
+      <input class="input" id="game-size"/>
+      <button id="create-grid">Create</button>
+    </div>
+<div id="board-wrapper">
+  <div class="board" id="board"></div>
+  </div>
+  <p class="message hidden" id="message"></p>
+  <button class="hidden" id="easify">Easify</button>
+  <div class="hidden" id = "display-buttons">
+  <button id="display-correct">Show Correct</button>
+  <button id="display-adjacent">Show Adjacent</button>
+  <button id="display-wrong">Show Wrong</button>
+ </div>
+  <div id="button-wrapper">
+  <button class= "hidden" id="submit">Submit</button>
+  </div>
+  <div class="guesses" id="guesses">
+
+  </div>
+  <script type="text/javascript" src='random.js'></script>
+  <!-- <script type="text/javascript" src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script> -->
+  </body>
+</html>
