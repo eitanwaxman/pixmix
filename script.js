@@ -81,7 +81,10 @@ submit.addEventListener('click', function(event) {
   let gameOver = false;
   if (selection.length === game.length) {
     let index = 0;
+    guess.sort();
+    game.sort();
     while (guess[index] === game[index] && index <= game.length) {
+      console.log(game.length)
       console.log(index)
       if (index === game.length) {
         gameOver = true;
@@ -95,9 +98,10 @@ submit.addEventListener('click', function(event) {
         buttonWrapper.appendChild(share);
         share.addEventListener('click', function() {
           console.log("Shared!")
-          printResults()
+          // printResults()
         })
       }
+      console.log(index)
       index++
     }
   }
