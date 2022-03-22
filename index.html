@@ -2,19 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
     <title>Dordle</title>
   </head>
   <body>
     <h1>Dordle</h1>
-
-  <div class="board" id="board">
-
+<div id="board-wrapper">
+  <div class="board" id="board"></div>
   </div>
-  <button id="display-correct">Show Correct</button>
-  <button id="display-wrong">Show Wrong</button>
-  <button id="display-adjacent">Show Adjacent</button>
   <p class="message" id="message"></p>
+  <button class="hidden" id="easify">Easify</button>
+  <div class="hidden" id = "display-buttons">
+  <button id="display-correct">Show Correct</button>
+  <button id="display-adjacent">Show Adjacent</button>
+  <button id="display-wrong">Show Wrong</button>
+ </div>
   <div id="button-wrapper">
   <button id="submit">Submit</button>
   </div>

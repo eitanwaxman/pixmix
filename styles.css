@@ -1,21 +1,26 @@
-h1{
+h1 {
   font-size: 4rem;
   margin-top: 3%;
 }
 
-body{
+body {
   text-align: center;
+  font-family: sans-serif;
 }
 
-button{
-  width: 15%;
-  height: 10%;
-  margin: 50px;
+button {
+  min-width: 350px;
+  min-height: 100px;
+  width: 20%;
+  height: 15%;
   padding: 5px;
   font-size: 2rem;
+  border-radius: 15px;
+  margin: 10px;
+  margin-top: 30px;
 }
 
-.board{
+.board {
   border-style: solid;
   display: grid;
   grid-template-columns: repeat(7, 60px);
@@ -26,57 +31,77 @@ button{
   border-radius: 10px;
 }
 
-.message{
+.message {
   font-size: 2.5rem;
 }
 
-.pixel{
+.pixel {
   border: solid;
   border-radius: 7px;
 }
 
-.guess-pixel{
+.guess-pixel {
   border: solid;
   border-color: gray;
   border-width: 0.1px;
 }
 
-.correct{
-background: green;
+.correct {
+  background: #23cc55;
+  transform: rotateX(180deg);
+  transition: 0.9s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
-.adjacent{
+.adjacent {
   background: orange;
+  transform: rotateX(180deg);
+  transition: 0.9s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
-.wrong{
+.wrong {
+  background: gray;
+  transform: rotateX(180deg);
+  transition: 0.9s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.correct-history {
+  background: lightgreen;
+}
+
+.wrong-history {
   background: gray;
 }
 
-.correct-history{
- background: lightgreen;
+.adjacent-history {
+  background: #ffd61f;
 }
 
-.wrong-history{
-background: gray;
-}
-
-.adjacent-history{
-  background: orange;
-}
-
-.selected{
+.selected {
   background: black;
 }
 
-.guesses{
+.guesses {
   margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.guess-board{
+.guess-board-wrapper {
+  /* flex: 0; */
+  /* height: 0;
+width: 0; */
+  /* animation: guessanimation 1s ease-out 1s */
+}
+
+.guess-board {
   border-style: solid;
   display: grid;
   grid-template-columns: repeat(7, 20px);
@@ -85,4 +110,95 @@ background: gray;
   width: fit-content;
   margin: 10px;
   border-radius: 5px;
+}
+
+.flip {
+  /* flex-grow: 1; */
+  transform-origin: center;
+  transform: rotateY(180deg);
+  transition: 2s;
+  transform-style: preserve-3d;
+  /* position: relative; */
+}
+
+.hidden {
+  display: none;
+}
+
+#submit {
+  background-color: lightblue;
+  margin: 50px;
+}
+
+#display-correct {
+  background-color: lightgreen;
+  font-size: 1.5rem;
+}
+
+#display-adjacent {
+  background-color: #ffd61f;
+  font-size: 1.5rem;
+}
+
+#display-wrong {
+  /* background-color: gray; */
+  font-size: 1.5rem;
+}
+
+/* @keyframes guessanimation {
+  100% {
+    height:100%;
+    width: 100%;
+  }
+} */
+@media screen and (max-width: 600px) {
+  button {
+    min-width: 250px;
+    min-height: 70px;
+  }
+
+  .board {
+    grid-template-columns: repeat(7, 40px);
+    grid-template-rows: repeat(7, 40px);
+  }
+
+  .message {
+    margin: 7px;
+    font-size: 18px;
+  }
+
+  #submit {
+    margin: 20px;
+  }
+
+  #easify{
+    min-width: 200px;
+    min-height: 40px;
+    margin: 7px;
+  }
+
+  #display-correct {
+    min-width: 150px;
+    min-height: 40px;
+    margin: 7px;
+    background-color: lightgreen;
+    font-size: 1rem;
+  }
+
+  #display-adjacent {
+    min-width: 150px;
+    min-height: 40px;
+    margin: 7px;
+    background-color: #ffd61f;
+    font-size: 1rem;
+  }
+
+  #display-wrong {
+    min-width: 150px;
+    min-height: 40px;
+    margin: 7px;
+    /* background-color: gray; */
+    font-size: 1rem;
+  }
+
 }

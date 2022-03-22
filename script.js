@@ -7,7 +7,7 @@ const adj = Math.sqrt(pixels)
 //   "24/03/2022": [0, 8, 42, 36, 6, 12, 48, 40, 30, 32, 18, 16],
 // }
 
-import {games} from "games.json";
+import {games} from "/games.json";
 
 const date = new Date()
 const today = date.toLocaleDateString('en-GB').toString();
@@ -74,6 +74,13 @@ displayAdjacent.addEventListener('click', function(){
   }
 })
 
+let easifyButton = document.getElementById("easify");
+let displayButtons = document.getElementById("display-buttons")
+easifyButton.addEventListener('click', function(){
+  easifyButton.classList.add("hidden");
+  displayButtons.classList.remove("hidden");
+})
+
 
 message.innerHTML = "Select " + game.length;
 
@@ -117,7 +124,7 @@ submit.addEventListener('click', function(event) {
   guess = [];
   for (let i = 0; i < pixels; i++) {
     const pixel = document.getElementById(i);
-    pixel.className = "";
+    pixel.className = "pixel";
   }
   lopp1: for (let i = 0; i < selection.length; i++) {
     loop2: for (let j = 0; j < game.length; j++) {
@@ -137,24 +144,6 @@ submit.addEventListener('click', function(event) {
            allCorrect.push(pixel.getAttribute('id'));
          }
        }
-      // if (selection[i] == game[j]) {
-      //   // const pixel = document.getElementById(selection[i]);
-      //   pixel.classList.remove("adjacent");
-      //   pixel.classList.remove("wrong");
-      //   pixel.classList.add("correct");
-      //   guess.push(Number(selection[i]))
-
-      //   break loop2;
-      // } else {
-      //  if (selection[i] == (game[j] + 1) || selection[i] == (game[j] - 1) || selection[i] == (game[j] + adj) || selection[i] == (game[j] - adj)) {
-      //   // const pixel = document.getElementById(selection[i]);
-      //   pixel.classList.remove("wrong");
-      //   pixel.classList.add("adjacent");
-      // }else{
-      //    pixel.classList.add("wrong");
-      // }
-      // }
-      //
       }
   }
   for(let i = 0; i < pixels; i++){
@@ -175,6 +164,7 @@ submit.addEventListener('click', function(event) {
       }
   }
 
+setTimeout(()=>{
   let gameOver = false;
   if (selection.length === game.length) {
     let index = 0;
@@ -207,21 +197,32 @@ submit.addEventListener('click', function(event) {
     message.innerHTML = "Try again..."
   }
   selection = [];
+  if(displayButtons.classList.contains("hidden")){
+      easifyButton.classList.remove("hidden");
+  }
+  },1000)
 })
 
 function reset(guessNum, gameOver) {
   // console.log(guessNum)
-  let board = document.getElementById("board");
-  let guessBoard = board.cloneNode(true);
+  let boardWrapper = document.getElementById("board-wrapper")
+  // let board = document.getElementById("board");
+  // let guessBoard = board.cloneNode(true);
+  let guessBoardWrapper = boardWrapper.cloneNode(true);
+  let guessBoard = guessBoardWrapper.children[0];
+  guessBoardWrapper.setAttribute('id', 'guess-board-wrapper-' + guessNum);
   guessBoard.setAttribute('id', 'guess-board-' + guessNum);
   for(let i = 0; i < guessBoard.children.length; i++){
      let guessPixel = guessBoard.children[i];
      guessPixel.setAttribute('id',"guess-" + guessNum + "pixel-" + i)
+     guessPixel.classList.remove("pixel")
      guessPixel.classList.add("guess-pixel")
   }
   guessBoard.classList.remove("board")
   guessBoard.classList.add("guess-board")
-  guesses.appendChild(guessBoard);
+  guessBoardWrapper.classList.add("guess-board-wrapper");
+  guesses.appendChild(guessBoardWrapper);
+  guessBoardWrapper.classList.add("flip");
   if (!gameOver) {
     for (let i = 0; i < pixels; i++) {
       const pixel = document.getElementById(i);
