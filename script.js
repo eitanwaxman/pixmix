@@ -141,6 +141,7 @@ submit.addEventListener('click', function(event) {
          pixel.classList.remove("wrong");
          pixel.classList.remove("adjacent");
          pixel.classList.add("correct");
+         guess.push(Number(selection[i]))
          if (!allCorrect.includes(pixel.getAttribute('id'))){
            allCorrect.push(pixel.getAttribute('id'));
          }
