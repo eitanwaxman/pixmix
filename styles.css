@@ -1,6 +1,7 @@
 h1 {
-  font-size: 4rem;
-  margin-top: 3%;
+  font-size: 3rem;
+  margin: 0;
+  margin-top: 2%;
 }
 
 body {
@@ -9,22 +10,21 @@ body {
 }
 
 button {
-  min-width: 350px;
-  min-height: 100px;
+  min-width: 200px;
+  min-height: 70px;
   width: 20%;
   height: 15%;
   padding: 5px;
   font-size: 2rem;
   border-radius: 15px;
   margin: 10px;
-  margin-top: 30px;
 }
 
 .board {
   border-style: solid;
   display: grid;
-  grid-template-columns: repeat(7, 60px);
-  grid-template-rows: repeat(7, 60px);
+  grid-template-columns: repeat(7, 30px);
+  grid-template-rows: repeat(7, 30px);
   gap: 1px;
   width: fit-content;
   margin: auto;
@@ -32,7 +32,8 @@ button {
 }
 
 .message {
-  font-size: 2.5rem;
+  margin: 5px;
+  font-size: 1.5rem;
 }
 
 .pixel {
@@ -127,22 +128,34 @@ width: 0; */
 
 #submit {
   background-color: lightblue;
-  margin: 50px;
+  margin: 30px;
+}
+
+#easify{
+  min-width: 100px;
+  min-height: 50px;
+  font-size: 1rem;
 }
 
 #display-correct {
+  min-width: 100px;
+  min-height: 50px;
   background-color: lightgreen;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 #display-adjacent {
+  min-width: 100px;
+  min-height: 50px;
   background-color: #ffd61f;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 #display-wrong {
+  min-width: 100px;
+  min-height: 50px;
   /* background-color: gray; */
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 /* @keyframes guessanimation {
