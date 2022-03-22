@@ -23,6 +23,7 @@ button{
   gap: 1px;
   width: fit-content;
   margin: auto;
+  border-radius: 10px;
 }
 
 .message{
@@ -30,12 +31,14 @@ button{
 }
 
 .pixel{
-  /* background: black; */
   border: solid;
+  border-radius: 7px;
 }
 
-.selected{
-  background: black;
+.guess-pixel{
+  border: solid;
+  border-color: gray;
+  border-width: 0.1px;
 }
 
 .correct{
@@ -44,6 +47,26 @@ background: green;
 
 .adjacent{
   background: orange;
+}
+
+.wrong{
+  background: gray;
+}
+
+.correct-history{
+ background: lightgreen;
+}
+
+.wrong-history{
+background: gray;
+}
+
+.adjacent-history{
+  background: orange;
+}
+
+.selected{
+  background: black;
 }
 
 .guesses{
@@ -58,7 +81,8 @@ background: green;
   display: grid;
   grid-template-columns: repeat(7, 20px);
   grid-template-rows: repeat(7, 20px);
-  gap: 1px;
+  /* gap: 1px; */
   width: fit-content;
   margin: 10px;
+  border-radius: 5px;
 }
