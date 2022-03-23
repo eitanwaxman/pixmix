@@ -1,5 +1,8 @@
 
 const urlParams = new URLSearchParams(window.location.search);
+const name = urlParams.get('name');
+document.querySelector('meta[name="description"]').setAttribute("content", "Try this PixMix by " + name);
+
 
 const adj = urlParams.get('grid');
 pixels = Math.pow(adj, 2);
@@ -11,7 +14,7 @@ const game = gameVar.split(',').map(Number);
 // const game = gameStringy.map(g => Number(g));
 console.log(gameVar)
 console.log(game)
-const name = urlParams.get('name');
+
 
 let selection = [];
 let totalSelected = 0;

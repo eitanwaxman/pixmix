@@ -32,7 +32,7 @@ button {
 }
 
 .board {
-  border-style: solid;
+  /* border-style: solid; */
   display: grid;
   grid-template-columns: repeat(var(--pixels), 30px);
   grid-template-rows: repeat(var(--pixels), 30px);
@@ -40,6 +40,8 @@ button {
   width: fit-content;
   margin: auto;
   border-radius: 10px;
+  padding: 5px;
+  background-color: gray;
 }
 
 .message {
@@ -50,6 +52,7 @@ button {
 .pixel {
   border: solid;
   border-radius: 7px;
+  background-color: white;
 }
 
 .guess-pixel {
