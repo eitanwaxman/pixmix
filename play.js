@@ -207,11 +207,11 @@ setTimeout(()=>{
         message.innerHTML = "You Win!"
         let buttonWrapper = document.getElementById("button-wrapper")
         let share = submit.cloneNode(true);
-        share.innerHTML = "Share result!";
+        share.innerHTML = "Create your own!";
         submit.remove();
         buttonWrapper.appendChild(share);
         share.addEventListener('click', function() {
-          console.log("Shared!")
+              window.open("https://www.pixmixs.com/create", '_blank');
           // printResults()
         })
       }
