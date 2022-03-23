@@ -4,31 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <title>PixMix</title>
   </head>
   <body>
-    <h1>Create a PixMix</h1>
-    <div class="input-wrapper" id="input-wrapper" >
-      <label for="name">Enter your name</label>
-      <input class="name-input" id="name" />
-      <label for="grid-size">Enter a number for grid size</label>
-      <input class="input" id="grid-size" />
-      <button id="create-grid">Create</button>
-    </div>
-    <p class="message hidden" id="message"></p>
+    <h1>? PixMix</h1>
 <div id="board-wrapper">
   <div class="board" id="board"></div>
   </div>
-
+  <p class="message" id="message"></p>
+  <button class="hidden" id="easify">Easify</button>
+  <div class="hidden" id = "display-buttons">
+  <button id="display-correct">Show Correct</button>
+  <button id="display-adjacent">Show Adjacent</button>
+  <button id="display-wrong">Show Wrong</button>
+ </div>
   <div id="button-wrapper">
-  <button class="hidden" id="submit">Submit</button>
+  <button id="submit">Submit</button>
   </div>
+  <div class="guesses" id="guesses">
 
+  </div>
   <div class="nav">
     <a href="index.html">Home</a>
   </div>
-
-  <script type="text/javascript" src='create.js'></script>
+  <script type="text/javascript" src='play.js'></script>
   <!-- <script type="text/javascript" src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script> -->
   </body>
 </html>

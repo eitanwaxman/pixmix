@@ -1,19 +1,28 @@
-const pixels = 49
-const adj = Math.sqrt(pixels)
-
-// const games = {
-//   "22/03/2022": [9, 16, 11, 18, 28, 36, 37, 38, 39, 40, 34],
-//   "23/03/2022": [8, 16, 23, 30, 31, 32, 2, 5, 18, 17, 12, 36, 40],
-//   "24/03/2022": [0, 8, 42, 36, 6, 12, 48, 40, 30, 32, 18, 16],
-// }
-
-
-const date = new Date()
-const today = date.toLocaleDateString('en-GB').toString();
-
-
+let adj = 0;
+let pixels = 0;
+let game = [];
 let selection = [];
 let totalSelected = 0;
+
+const submit = document.getElementById("submit")
+let inputWrapper = document.getElementById("input-wrapper");
+let message = document.getElementById("message");
+let gridSize = document.getElementById("grid-size")
+let createGame = document.getElementById("create-grid");
+let nameInput = document.getElementById("name");
+
+createGame.addEventListener('click', function(){
+adj = gridSize.value;
+pixels = Math.pow(adj, 2);
+console.log("pixels", pixels)
+if(adj > 100){
+message.classList.remove("hidden");
+message.innerHTML = "Max grid size 100"
+}
+else{
+message.innerHTML = "Select pixels for your friends to find!"
+const root = document.querySelector(':root')
+root.style.setProperty("--pixels", adj);
 
 for (let i = 0; i < pixels; i++) {
   const pixel = document.createElement("div")
@@ -28,26 +37,38 @@ for (let i = 0; i < pixels; i++) {
       }
       pixel.classList.remove("selected");
       totalSelected--
-      message.innerHTML = "Select " + (game.length - totalSelected);
+      message.innerHTML = "Select pixels for your friends to find";
     } else {
-      if ((game.length - totalSelected) > 0) {
+      if ((pixels - totalSelected) > 0) {
         pixel.classList.add("selected")
         // console.log(pixel.getAttribute('id'))
         totalSelected++
         selection.push(pixel.getAttribute('id'))
-        message.innerHTML = "Select " + (game.length - totalSelected);
       } else {
-        message.innerHTML = "You have selected the max amount of pixels for this puzzle!"
+        message.innerHTML = "You have selected the max amount of pixels!"
       }
     }
   })
   // console.log("pixel added")
 }
 
-const submit = document.getElementById("submit")
-submit.addEventListener('click', function(event) {
-
+submit.classList.remove("hidden");
+message.classList.remove("hidden");
+inputWrapper.classList.add("hidden");
 }
+})
+
+
+submit.addEventListener('click', function(event) {
+let name = nameInput.value;
+let game = encodeURIComponent(selection.map(Number));   //(JSON.stringify(selection));
+console.log(game)
+
+let gameURL = "https://www.pixmixs.com/play?name=" + name + "&grid=" + adj + "&game=" + game
+window.open(gameURL, '_blank');
+// let decode = decodeURIComponent(game);
+// console.log(decode);
+})
 
 function printResults(){
 //

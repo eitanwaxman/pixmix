@@ -1,23 +1,17 @@
-const pixels = 49
-const adj = Math.sqrt(pixels)
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const adj = urlParams.get('grid');
+pixels = Math.pow(adj, 2);
 const root = document.querySelector(':root')
 root.style.setProperty("--pixels", adj);
-
-
-const games = {
-  "22/03/2022": [9, 16, 11, 18, 28, 36, 37, 38, 39, 40, 34],
-  "23/03/2022": [8, 16, 23, 30, 31, 32, 2, 5, 18, 17, 12, 36, 40],
-  "24/03/2022": [0, 8, 42, 36, 6, 12, 48, 40, 30, 32, 18, 16],
-  "25/03/2022": [21, 15, 9, 3, 11, 19, 27, 22, 29, 26, 33]
-}
-
-// import {games} from "/dordle/games.js";
-
-const date = new Date()
-const today = date.toLocaleDateString('en-GB').toString();
-console.log(games[today]);
-
-const game = games[today];
+const gameEncoded = urlParams.get('game');
+const gameVar = decodeURIComponent(gameEncoded);
+const game = gameVar.split(',').map(Number);
+// const game = gameStringy.map(g => Number(g));
+console.log(gameVar)
+console.log(game)
+const name = urlParams.get('name');
 
 let selection = [];
 let totalSelected = 0;
@@ -25,6 +19,8 @@ let allCorrect = [];
 let allWrong = [];
 let allAdjacent = [];
 
+let heading = document.querySelector('h1');
+heading.innerHTML = name + "'s PixMix"
 let message = document.getElementById("message");
 let guesses = document.getElementById("guesses");
 

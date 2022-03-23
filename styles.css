@@ -137,6 +137,16 @@ width: 0; */
   display: none;
 }
 
+.nav{
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+bottom: 50px;
+text-align: center;
+}
+
 #submit {
   min-width: 150px;
   min-height: 50px;
@@ -184,8 +194,8 @@ width: 0; */
   }
 
   .board {
-    grid-template-columns: repeat(7, 40px);
-    grid-template-rows: repeat(7, 40px);
+    grid-template-columns: repeat(var(--pixels), 40px);
+    grid-template-rows: repeat(var(--pixels), 40px);
   }
 
   .message {

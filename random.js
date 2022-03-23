@@ -1,6 +1,11 @@
 let adj = 0;
 let pixels = 0;
 let game = [];
+let selection = [];
+let totalSelected = 0;
+let allCorrect = [];
+let allWrong = [];
+let allAdjacent = [];
 
 const submit = document.getElementById("submit")
 let inputWrapper = document.getElementById("input-wrapper");
@@ -8,11 +13,18 @@ let message = document.getElementById("message");
 let gridSize = document.getElementById("grid-size")
 let gameSize = document.getElementById("game-size")
 let createGame = document.getElementById("create-grid");
+
 createGame.addEventListener('click', function(){
 adj = gridSize.value;
+gameLength = gameSize.value;
 pixels = Math.pow(adj, 2);
 console.log("pixels", pixels)
-gameLength = gameSize.value;
+if((adj > 100) || (gameLength >= pixels)){
+message.classList.remove("hidden");
+message.innerHTML = "Max grid size 100, game must be smaller than grid"
+}
+else{
+message.innerHTML = "Have fun!"
 //create the game
 let randomPixel;
 for(let i= 0; i < gameLength; i++){
@@ -60,34 +72,8 @@ for (let i = 0; i < pixels; i++) {
 submit.classList.remove("hidden");
 message.classList.remove("hidden");
 inputWrapper.classList.add("hidden");
-
+}
 })
-
-
-// const pixels = 49
-// const adj = Math.sqrt(pixels)
-
-
-// const games = {
-//   "22/03/2022": [9, 16, 11, 18, 28, 36, 37, 38, 39, 40, 34],
-//   "23/03/2022": [8, 16, 23, 30, 31, 32, 2, 5, 18, 17, 12, 36, 40],
-//   "24/03/2022": [0, 8, 42, 36, 6, 12, 48, 40, 30, 32, 18, 16],
-//   "25/03/2022": [21, 15, 9, 3, 11, 19, 27, 22, 29, 26, 33]
-// }
-//
-// // import {games} from "/dordle/games.js";
-//
-// const date = new Date()
-// const today = date.toLocaleDateString('en-GB').toString();
-// console.log(games[today]);
-
-
-
-let selection = [];
-let totalSelected = 0;
-let allCorrect = [];
-let allWrong = [];
-let allAdjacent = [];
 
 
 let guesses = document.getElementById("guesses");
@@ -173,10 +159,35 @@ submit.addEventListener('click', function(event) {
       if (!pixel.classList.contains("correct") && !pixel.classList.contains("adjacent") ){
        pixel.classList.add("wrong");
      }
-       if (!pixel.classList.contains("correct") && (selection[i] == (game[j] + 1) || selection[i] == (game[j] - 1) || selection[i] == (game[j] + adj) || selection[i] == (game[j] - adj))) {
-         pixel.classList.remove("wrong");
-         pixel.classList.add("adjacent");
-       }
+     if ((!pixel.classList.contains("correct") &&
+        (Number(selection[i]))%adj !== 0) &&
+        ((Number(selection[i]) + 1) %adj !== 0) &&
+        (selection[i] == (game[j] + 1) ||
+         selection[i] == (game[j] - 1) ||
+         selection[i] == (game[j] + adj) ||
+         selection[i] == (game[j] - adj))) {
+      console.log("a")
+       pixel.classList.remove("wrong");
+       pixel.classList.add("adjacent");
+     }
+     if ((!pixel.classList.contains("correct")) &&
+        (Number(selection[i])%adj == 0) &&
+        (selection[i] == (game[j] - 1) ||
+         selection[i] == (game[j] + adj) ||
+         selection[i] == (game[j] - adj))) {
+      console.log("b")
+       pixel.classList.remove("wrong");
+       pixel.classList.add("adjacent");
+     }
+     if ((!pixel.classList.contains("correct")) &&
+        ((Number(selection[i]) + 1)%adj == 0) &&
+         (selection[i] == (game[j] + 1) ||
+         selection[i] == (game[j] + adj) ||
+         selection[i] == (game[j] - adj))) {
+      console.log("c")
+       pixel.classList.remove("wrong");
+       pixel.classList.add("adjacent");
+     }
        if (selection[i] == game[j]) {
          pixel.classList.remove("wrong");
          pixel.classList.remove("adjacent");
