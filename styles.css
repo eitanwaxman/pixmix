@@ -3,13 +3,9 @@ html{
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
   text-align: center;
   font-family: sans-serif;
-  height: 100%;
 }
 
 
@@ -27,6 +23,7 @@ button {
   border-radius: 15px;
   margin: 5px;
   font-weight: bold;
+
 }
 
 .flex-wrapper{
@@ -34,7 +31,6 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 50%
 }
 
 .input{

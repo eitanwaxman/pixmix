@@ -60,12 +60,30 @@ inputWrapper.classList.add("hidden");
 
 
 submit.addEventListener('click', function(event) {
-let name = nameInput.value;
-let game = encodeURIComponent(selection.map(Number));   //(JSON.stringify(selection));
-console.log(game)
+  let name = nameInput.value;
+  let game = encodeURIComponent(selection.map(Number));   //(JSON.stringify(selection));
+  console.log(game)
+  let gameURL = "https://www.pixmixs.com/play?name=" + name + "&grid=" + adj + "&game=" + game
 
-let gameURL = "https://www.pixmixs.com/play?name=" + name + "&grid=" + adj + "&game=" + game
-window.open(gameURL, '_blank');
+
+  let buttonWrapper = document.getElementById("button-wrapper")
+  let playButton = submit.cloneNode(true);
+  let shareButton = submit.cloneNode(true);
+  playButton.innerHTML = "Play now!";
+  shareButton.innerHTML = "Share your creation!";
+  submit.remove();
+  buttonWrapper.appendChild(playButton);
+  buttonWrapper.appendChild(shareButton);
+  playButton.addEventListener('click', function() {
+      window.open(gameURL, '_blank');
+  })
+  shareButton.addEventListener('click', function() {
+  navigator.clipboard.writeText("Try out this PixMix I created for you: \n" + gameURL);
+    alert("Copied to clipboard! Share! Share! Share!")
+  })
+
+
+
 // let decode = decodeURIComponent(game);
 // console.log(decode);
 })
