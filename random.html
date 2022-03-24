@@ -1,46 +1,92 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name= "robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Random pixel puzzle from easy to impossible">
-<meta name="keywords" content="puzzle, fun, pixel, wordle, game">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <title>PixMix</title>
-  </head>
-  <body>
-      <div class="flex-wrapper">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <!-- General -->
+  <title>PixMix | Random</title>
+  <meta name="description" content="Random pixel puzzle from easy to impossible">
+  <meta name="keywords" content="puzzle, fun, pixel, wordle, game">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <!-- Search Engine -->
+  <meta name="description" content="Random pixel puzzle from easy to impossible">
+  <meta name="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="PixMix | Random">
+  <meta itemprop="description" content="Random pixel puzzle from easy to impossible">
+  <meta itemprop="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="PixMix | Random">
+  <meta name="og:description" content="Random pixel puzzle from easy to impossible">
+  <meta name="og:image" content="https://www.pixmixs.com/images/pixmix.jpg">
+  <meta name="og:url" content="https://www.pixmixs.com/random">
+  <meta name="og:site_name" content="PixMix">
+  <meta name="og:type" content="website">
+
+  <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+  <div class="flex-wrapper">
     <h1>Random PixMix</h1>
-    <div class="input-wrapper" id="input-wrapper" >
+    <p id="help">❔</p>
+    <div class="hidden rules" id="rules">
+      <h3>How to play</h3>
+      <p>Select pixels on the board until you reach the game max</p>
+      <p>Click submit to see your result</p>
+      <br />
+      <div class="rules-sub">
+        <p class="green emoji">🟩</p>
+        <p>Green - correct!</p>
+      </div>
+      <div class="rules-sub">
+        <p class="orange emoji">🟧</p>
+        <p>Orange - close! There is a green nearby...</p>
+      </div>
+      <div class="rules-sub">
+        <p class="black emoji">⬛</p>
+        <p>Grey - wrong...</p>
+      </div>
+      <br />
+      <p>You have unlimited trys to reveal the pattern</p>
+      <p>Your goal: do it in as few as possible!</p>
+      <p>Good Luck!</p>
+    </div>
+    <div class="input-wrapper" id="input-wrapper">
       <label for="grid-size">Enter a number for grid size</label>
       <input class="input" id="grid-size" />
       <label for="game-size">Enter a number for game size</label>
-      <input class="input" id="game-size"/>
+      <input class="input" id="game-size" />
       <button id="create-grid">Create</button>
     </div>
-<div id="board-wrapper">
-  <div class="board" id="board"></div>
-  </div>
-  <p class="message hidden" id="message"></p>
-  <button class="hidden" id="easify">Easify</button>
-  <div class="hidden" id = "display-buttons">
-  <button id="display-correct">Show Correct</button>
-  <button id="display-adjacent">Show Adjacent</button>
-  <button id="display-wrong">Show Wrong</button>
- </div>
-  <div id="button-wrapper">
-  <button class= "hidden" id="submit">Submit</button>
-  </div>
-  <div class="guesses" id="guesses">
+    <div id="board-wrapper">
+      <div class="board" id="board"></div>
+    </div>
+    <p class="message hidden" id="message"></p>
+    <button class="hidden" id="easify">Easify</button>
+    <div class="hidden" id="display-buttons">
+      <button id="display-correct">Show Correct</button>
+      <button id="display-adjacent">Show Adjacent</button>
+      <button id="display-wrong">Show Wrong</button>
+    </div>
+    <div id="button-wrapper">
+      <button class="hidden" id="submit">Submit</button>
+    </div>
+    <div class="guesses" id="guesses">
 
-  </div>
-  <div class="nav">
-  <a href="/">Home</a>
-  </div>
+    </div>
+    <div class="nav">
+      <a href="/">Home</a>
+      <p id="copywrite">© PixMix 2022</p>
+    </div>
   </div>
   <script type="text/javascript" src='random.js'></script>
   <!-- <script type="text/javascript" src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script> -->
-  </body>
+</body>
+
 </html>

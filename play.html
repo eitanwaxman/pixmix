@@ -4,15 +4,53 @@
     <meta charset="utf-8">
     <meta name= "robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description">
-<meta name="keywords" content="puzzle, fun, pixel, wordle, game">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <!-- General -->
     <title>PixMix</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="description" content="Try this PixMix I made just for you!">
+    <meta name="keywords" content="puzzle, fun, pixel, wordle, game">
+    <!-- Search Engine -->
+    <meta name="description" content="Try this PixMix I made just for you!">
+    <meta name="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="PixMix | Play">
+    <meta itemprop="description" content="Try this PixMix I made just for you!">
+    <meta itemprop="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="PixMix | Play">
+    <meta name="og:description" content="Try this PixMix I made just for you!">
+    <meta name="og:image" content="https://www.pixmixs.com/images/pixmix.jpg">
+    <meta name="og:url" content="https://www.pixmixs.com/play">
+    <meta name="og:site_name" content="PixMix">
+    <meta name="og:type" content="website">
+
+    <link rel="stylesheet" href="styles.css">
+
+
   </head>
   <body>
       <div class="flex-wrapper">
-    <h1>? PixMix</h1>
+    <h1>? PixMix | Play</h1>
+    <p id="help">❔</p>
+    <div class="hidden rules" id="rules">
+    <h3>How to play</h3>
+    <p>Select pixels on the board until you reach the game max</p>
+    <p>Click submit to see your result</p>
+    <br />
+    <div class="rules-sub">
+        <p class="green emoji">🟩</p><p>Green - correct!</p>
+    </div>
+  <div class="rules-sub">
+      <p class="orange emoji">🟧</p><p>Orange - close! There is a green nearby...</p>
+  </div >
+  <div class="rules-sub">
+      <p class="black emoji">⬛</p><p>Grey - wrong...</p>
+  </div>
+  <br />
+    <p>You have unlimited trys to reveal the pattern</p>
+    <p>Your goal: do it in as few as possible!</p>
+    <p>Good Luck!</p>
+    </div>
 <div id="board-wrapper">
   <div class="board" id="board"></div>
   </div>
@@ -31,6 +69,7 @@
   </div>
   <div class="nav">
     <a href="/">Home</a>
+    <p id="copywrite">© PixMix 2022</p>
   </div>
   </div>
   <script type="text/javascript" src='play.js'></script>

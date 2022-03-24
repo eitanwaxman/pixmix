@@ -1,3 +1,18 @@
+const date = new Date()
+const year = date.getFullYear()
+const copywrite = document.getElementById("copywrite")
+copywrite.innerHTML = "© " + year + " PixMix"
+
+const rules = document.getElementById("rules");
+const help = document.getElementById("help");
+help.addEventListener('click',function(){
+  if(rules.classList.contains("hidden")){
+    rules.classList.remove("hidden");
+  }
+  else{
+    rules.classList.add("hidden");
+  }
+})
 
 const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get('name');

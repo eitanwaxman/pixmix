@@ -1,7 +1,24 @@
+const date = new Date()
+const year = date.getFullYear()
+const copywrite = document.getElementById("copywrite")
+copywrite.innerHTML = "© " + year + " PixMix"
+
+
 const pixels = 49
 const adj = Math.sqrt(pixels)
 const root = document.querySelector(':root')
 root.style.setProperty("--pixels", adj);
+
+const rules = document.getElementById("rules");
+const help = document.getElementById("help");
+help.addEventListener('click',function(){
+  if(rules.classList.contains("hidden")){
+    rules.classList.remove("hidden");
+  }
+  else{
+    rules.classList.add("hidden");
+  }
+})
 
 
 const games = {
@@ -23,7 +40,6 @@ const games = {
 
 // import {games} from "/dordle/games.js";
 
-const date = new Date()
 const today = date.toLocaleDateString('en-GB').toString();
 console.log(games[today]);
 

@@ -2,16 +2,26 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T30LWP3R9D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T30LWP3R9D');
+  </script>
+
   <!-- General -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
   <title>PixMix</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <!-- Search Engine -->
-  <meta name="robots" content="index, follow">
   <meta name="keywords" content="puzzle, fun, pixel, wordle, game">
   <meta name="description" content="Addictive pixel puzzles for the Wordle-less">
+  <!-- Search Engine -->
+  <meta name="robots" content="index, follow">
   <meta name="image" content="https://www.pixmixs.com/images/pixmix.jpg">
   <!-- Schema.org for Google -->
   <meta itemprop="name" content="PixMix">
@@ -29,9 +39,30 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+  <!-- BODY -->
 <body>
   <div class="flex-wrapper">
     <h1>Today's PixMix</h1>
+    <p id="help">❔</p>
+    <div class="hidden rules" id="rules">
+    <h3>How to play</h3>
+    <p>Select pixels on the board until you reach the game max</p>
+    <p>Click submit to see your result</p>
+    <br />
+    <div class="rules-sub">
+        <p class="green emoji">🟩</p><p>Green - correct!</p>
+    </div>
+  <div class="rules-sub">
+      <p class="orange emoji">🟧</p><p>Orange - close! There is a green nearby...</p>
+  </div >
+  <div class="rules-sub">
+      <p class="black emoji">⬛</p><p>Grey - wrong...</p>
+  </div>
+  <br />
+    <p>You have unlimited trys to reveal the pattern</p>
+    <p>Your goal: do it in as few as possible!</p>
+    <p>Good Luck!</p>
+    </div>
     <div id="board-wrapper">
       <div class="board" id="board"></div>
     </div>
@@ -51,6 +82,8 @@
     <div class="nav">
       <a href="random">Random</a>
       <a href="create">Create</a>
+      <br />
+      <p id="copywrite">© PixMix 2022</p>
     </div>
   </div>
   <script type="text/javascript" src='script.js'></script>
