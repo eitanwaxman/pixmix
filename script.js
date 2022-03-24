@@ -34,6 +34,8 @@ let totalSelected = 0;
 let allCorrect = [];
 let allWrong = [];
 let allAdjacent = [];
+let shareable = [];
+let shareableText = "PixMix " + today +"\n";
 
 let message = document.getElementById("message");
 let guesses = document.getElementById("guesses");
@@ -205,6 +207,8 @@ submit.addEventListener('click', function(event) {
       }
   }
 
+shareable.push(guess.length)
+
 setTimeout(()=>{
   let gameOver = false;
   if (selection.length === game.length) {
@@ -220,13 +224,20 @@ setTimeout(()=>{
         reset(guessNum, gameOver)
         message.innerHTML = "You Win!"
         let buttonWrapper = document.getElementById("button-wrapper")
-        let share = submit.cloneNode(true);
-        share.innerHTML = "Create your own!";
+        let createButton = submit.cloneNode(true);
+        let shareButton = submit.cloneNode(true);
+        createButton.innerHTML = "Create your own!";
+        shareButton.innerHTML = "Share your result!";
         submit.remove();
-        buttonWrapper.appendChild(share);
-        share.addEventListener('click', function() {
+        buttonWrapper.appendChild(createButton);
+        buttonWrapper.appendChild(shareButton);
+        createButton.addEventListener('click', function() {
           window.open("https://www.pixmixs.com/create", '_blank');
           // printResults()
+        })
+        shareButton.addEventListener('click', function() {
+        navigator.clipboard.writeText(printResults());
+          alert("Copied to clipboard! Share! Share! Share!")
         })
       }
       console.log(index)
@@ -273,5 +284,18 @@ function reset(guessNum, gameOver) {
 }
 
 function printResults(){
-//
+  console.log(shareable)
+for(let i = 0; i < shareable.length; i++){
+  for(let b = 0; b < shareable[i]; b++){
+    //add black emoji
+    shareableText += "◼️";
+  }
+  for(let w = 0; w < (game.length - shareable[i]); w++){
+    //add white emoji
+    shareableText += "◻️";
+  }
+    shareableText += "\n"
+  //skip line
+}
+return shareableText;
 }

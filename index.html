@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <!-- General -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    <title>PixMix</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <!-- Search Engine -->
-    <meta name= "robots" content="index, follow">
-    <meta name="keywords" content="puzzle, fun, pixel, wordle, game">
-    <meta name="description" content="Addictive pixel puzzles for the Wordle-less">
-    <meta name="image" content="https://www.pixmixs.com/images/pixmix.jpg">
-    <!-- Schema.org for Google -->
-    <meta itemprop="name" content="PixMix">
-    <meta itemprop="description" content="Addictive pixel puzzles for the Wordle-less">
-    <meta itemprop="image" content="https://www.pixmixs.com/images/pixmix.jpg">
-    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-    <meta name="og:title" content="PixMix">
-    <meta name="og:description" content="Addictive pixel puzzles for the Wordle-ss">
-    <meta name="og:image" content="https://www.pixmixs.com/images/pixmix.jpg">
-    <meta name="og:url" content="https://www.pixmixs.com/">
-    <meta name="og:site_name" content="PixMix">
-    <meta name="og:type" content="website">
+<head>
+  <!-- General -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-     <!-- STYLES -->
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
+  <title>PixMix</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <!-- Search Engine -->
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="puzzle, fun, pixel, wordle, game">
+  <meta name="description" content="Addictive pixel puzzles for the Wordle-less">
+  <meta name="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="PixMix">
+  <meta itemprop="description" content="Addictive pixel puzzles for the Wordle-less">
+  <meta itemprop="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="PixMix">
+  <meta name="og:description" content="Addictive pixel puzzles for the Wordle-ss">
+  <meta name="og:image" content="https://www.pixmixs.com/images/pixmix.jpg">
+  <meta name="og:url" content="https://www.pixmixs.com/">
+  <meta name="og:site_name" content="PixMix">
+  <meta name="og:type" content="website">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="flex-wrapper">
     <h1>Today's PixMix</h1>
-<div id="board-wrapper">
-  <div class="board" id="board"></div>
-  </div>
-  <p class="message" id="message"></p>
-  <button class="hidden" id="easify">Easify</button>
-  <div class="hidden" id = "display-buttons">
-  <button id="display-correct">Show Correct</button>
-  <button id="display-adjacent">Show Adjacent</button>
-  <button id="display-wrong">Show Wrong</button>
- </div>
-  <div id="button-wrapper">
-  <button id="submit">Submit</button>
-  </div>
-  <div class="guesses" id="guesses">
+    <div id="board-wrapper">
+      <div class="board" id="board"></div>
+    </div>
+    <p class="message" id="message"></p>
+    <button class="hidden" id="easify">Easify</button>
+    <div class="hidden" id="display-buttons">
+      <button id="display-correct">Show Correct</button>
+      <button id="display-adjacent">Show Adjacent</button>
+      <button id="display-wrong">Show Wrong</button>
+    </div>
+    <div id="button-wrapper">
+      <button id="submit">Submit</button>
+    </div>
+    <div class="guesses" id="guesses">
 
-  </div>
-  <div class="nav">
-    <a  href="random">Random</a>
-    <a  href="create">Create</a>
+    </div>
+    <div class="nav">
+      <a href="random">Random</a>
+      <a href="create">Create</a>
+    </div>
   </div>
   <script type="text/javascript" src='script.js'></script>
   <!-- <script type="text/javascript" src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script> -->
-  </body>
+</body>
+
 </html>

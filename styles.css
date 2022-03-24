@@ -1,27 +1,55 @@
-h1 {
-  font-size: 3rem;
-  margin: 7px;
-  margin-top: 2%;
+html{
+  height: 100%;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-family: sans-serif;
+  height: 100%;
 }
+
+
+h1 {
+  font-size: 3rem;
+  margin: 10px;
+  /* margin-top: 10%; */
+  margin-bottom: 20px;
+}
+
 
 button {
   padding: 10px;
   font-size: 1rem;
   border-radius: 15px;
   margin: 5px;
+  font-weight: bold;
+}
+
+.flex-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%
 }
 
 .input{
   width: 50px;
   height: 30px;
-  margin: 5px;
+  margin: 10px 0 20px;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.text-input{
+  margin: 10px 0 20px;
+  text-align: center;
+  height: 30px;
+  font-size: 1rem;
 }
 
 .input-wrapper{
@@ -29,6 +57,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .board {
@@ -141,7 +170,7 @@ width: 0; */
 }
 
 .nav{
-margin-top: 100px;
+margin-top: 50px;
 }
 
 #submit {
@@ -191,10 +220,20 @@ margin-top: 100px;
   }
 
   .board {
-    grid-template-columns: repeat(var(--pixels), 40px);
-    grid-template-rows: repeat(var(--pixels), 40px);
+    /* grid-template-columns: repeat(var(--pixels), 40px);
+    grid-template-rows: repeat(var(--pixels), 40px); */
+    grid-template-columns: repeat(var(--pixels), calc(90vw / var(--pixels)));
+    grid-template-rows: repeat(var(--pixels), calc(90vw / var(--pixels)));
   }
 
+  .pixel{
+    border-radius: 10%;
+  }
+
+  .guess-board {
+    grid-template-columns: repeat(var(--pixels), calc(30vw / var(--pixels)));
+    grid-template-rows: repeat(var(--pixels), calc(30vw / var(--pixels)));
+  }
   .message {
     margin: 7px;
     font-size: 18px;

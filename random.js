@@ -19,7 +19,7 @@ adj = gridSize.value;
 gameLength = gameSize.value;
 pixels = Math.pow(adj, 2);
 console.log("pixels", pixels)
-if((adj > 100) || (adj == 0) ||(gameLength >= pixels)) || (gameLength == 0) {
+if((adj > 100) || (adj == 0) ||(gameLength >= pixels) || (gameLength == 0)) {
 message.classList.remove("hidden");
 message.innerHTML = "Grid size must be between 1-100, game must be smaller than grid and bigger than 0"
 }
