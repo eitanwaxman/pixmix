@@ -19,7 +19,7 @@ const name = urlParams.get('name');
 document.querySelector('meta[name="description"]').setAttribute("content", "Try this PixMix by " + name);
 
 
-const adj = urlParams.get('grid');
+const adj = Number(urlParams.get('grid'));
 pixels = Math.pow(adj, 2);
 const root = document.querySelector(':root')
 root.style.setProperty("--pixels", adj);
@@ -147,12 +147,17 @@ submit.addEventListener('click', function(event) {
   lopp1: for (let i = 0; i < selection.length; i++) {
     loop2: for (let j = 0; j < game.length; j++) {
       const pixel = document.getElementById(selection[i]);
+      console.log(pixel);
+      console.log(selection[i]);
+      console.log(game[j]);
       if (!pixel.classList.contains("correct") && !pixel.classList.contains("adjacent") ){
        pixel.classList.add("wrong");
+       console.log("wrong added")
      }
+     console.log(game[j] + adj)
        if ((!pixel.classList.contains("correct") &&
           (Number(selection[i]))%adj !== 0) &&
-          ((Number(selection[i]) + 1) %adj !== 0) &&
+          ((Number(selection[i]) + 1)%adj !== 0) &&
           (selection[i] == (game[j] + 1) ||
            selection[i] == (game[j] - 1) ||
            selection[i] == (game[j] + adj) ||

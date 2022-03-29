@@ -100,6 +100,8 @@ input{
 
 .pixel {
   border: solid;
+  border-width: 2px;
+  /* border-color: gray; */
   border-radius: 7px;
   background-color: white;
   cursor: pointer;
@@ -199,7 +201,7 @@ margin-top: 50px;
   /* align-items: center;
   align-content: center; */
   z-index: 1000;
-  top: 20%;
+  top: 10%;
   border: solid;
   border-color: gray;
   border-radius: 20px;
@@ -213,9 +215,16 @@ margin-top: 50px;
   margin-left: 20px;
   padding: 0;
 }
+
+.rules-gif{
+  max-width: 50%;
+  max-height: 50%;
+  margin: auto;
+}
+
 .emoji{
   display: inline-flex;
-  opacity: 50%;
+  opacity: 60%;
 }
 
 .hidden {
@@ -228,7 +237,14 @@ margin-top: 50px;
   top: 10px;
   right: 20px;
   cursor: pointer;
+  background-color: lightblue;
+  padding: 10px;
+  border-radius: 50%;
 }
+#help:hover{
+  background-color: blue;
+}
+
 #copywrite{
   font-size: 1rem;
   color: gray;
@@ -268,13 +284,18 @@ margin-top: 50px;
   font-size: 0.7rem;
 }
 
-/* @keyframes guessanimation {
-  100% {
-    height:100%;
-    width: 100%;
-  }
-} */
+#level-input{
+  width: 300px;
+}
+
+#level-pic{
+  font-size: 2rem;
+}
 @media screen and (max-width: 600px) {
+  h1{
+    margin-top: 10%;
+  }
+  
   button {
     min-width: 250px;
     min-height: 70px;

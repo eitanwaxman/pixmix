@@ -23,15 +23,42 @@ let allCorrect = [];
 let allWrong = [];
 let allAdjacent = [];
 
-const submit = document.getElementById("submit")
+const submit = document.getElementById("submit");
 let inputWrapper = document.getElementById("input-wrapper");
 let message = document.getElementById("message");
-let gridSize = document.getElementById("grid-size")
-let gameSize = document.getElementById("game-size")
+let gridSize = document.getElementById("grid-size");
+let gameSize = document.getElementById("game-size");
 let createGame = document.getElementById("create-grid");
+let levelSelector = document.getElementById("level-input");
+let levelPic = document.getElementById("level-pic");
+
+levelSelector.addEventListener('input', function(){
+let level = levelSelector.value;
+if (level > 0 && level <= 5){
+levelPic.innerHTML = "😁"
+}
+if (level > 5 && level <= 20){
+levelPic.innerHTML = "😀"
+}
+if (level > 20 && level <= 40){
+levelPic.innerHTML = "🙂"
+}
+if (level > 40 && level <= 60){
+levelPic.innerHTML = "😐"
+}
+if (level > 60 && level <= 80){
+levelPic.innerHTML = "😮"
+}
+if (level > 80 && level <= 95){
+levelPic.innerHTML = "😵"
+}
+if (level > 95){
+levelPic.innerHTML = "🤯"
+}
+})
 
 createGame.addEventListener('click', function(){
-adj = gridSize.value;
+adj = Number(gridSize.value);
 gameLength = gameSize.value;
 pixels = Math.pow(adj, 2);
 console.log("pixels", pixels)

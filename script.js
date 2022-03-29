@@ -5,7 +5,7 @@ copywrite.innerHTML = "© " + year + " PixMix"
 
 
 const pixels = 49
-const adj = Math.sqrt(pixels)
+const adj = Number(Math.sqrt(pixels));
 const root = document.querySelector(':root')
 root.style.setProperty("--pixels", adj);
 

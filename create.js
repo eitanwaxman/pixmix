@@ -26,6 +26,8 @@ let message = document.getElementById("message");
 let gridSize = document.getElementById("grid-size")
 let createGame = document.getElementById("create-grid");
 let nameInput = document.getElementById("name");
+let levelPic = document.getElementById("level-pic");
+
 
 createGame.addEventListener('click', function(){
 adj = gridSize.value;
@@ -64,10 +66,11 @@ for (let i = 0; i < pixels; i++) {
         message.innerHTML = "You have selected the max amount of pixels!"
       }
     }
+    setLevel()
   })
   // console.log("pixel added")
 }
-
+levelPic.classList.remove("hidden");
 submit.classList.remove("hidden");
 message.classList.remove("hidden");
 inputWrapper.classList.add("hidden");
@@ -103,6 +106,32 @@ submit.addEventListener('click', function(event) {
 // let decode = decodeURIComponent(game);
 // console.log(decode);
 })
+
+function setLevel(){
+  console.log(totalSelected, pixels)
+  let level = (100 - (totalSelected/pixels)*100)
+  if (level > 0 && level <= 65){
+  levelPic.innerHTML = "😁"
+  }
+  if (level > 65 && level <= 75){
+  levelPic.innerHTML = "😀"
+  }
+  if (level > 75 && level <= 80){
+  levelPic.innerHTML = "🙂"
+  }
+  if (level > 80 && level <= 87){
+  levelPic.innerHTML = "😐"
+  }
+  if (level > 87 && level <= 92){
+  levelPic.innerHTML = "😮"
+  }
+  if (level > 92 && level <= 97){
+  levelPic.innerHTML = "😵"
+  }
+  if (level > 97){
+  levelPic.innerHTML = "🤯"
+  }
+}
 
 function printResults(){
 //
