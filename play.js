@@ -75,12 +75,12 @@ document.addEventListener('mouseup', ()=>{
 
 document.addEventListener('touchstart', ()=>{
   mouseDown = true;
-  // console.log(mouseDown)
+  console.log('touchstart')
 })
 
 document.addEventListener('touchend', ()=>{
   mouseDown = false;
-  // console.log(mouseDown)
+  console.log('touchend')
 })
 
 
@@ -204,9 +204,9 @@ for (let i = 0; i < pixels; i++) {
     })
 
     pixel.addEventListener('touchmove', function(event) {
-      // console.log('mouseover')
+      console.log('touchmove')
       if (drawMode && mouseDown){
-          // console.log('paint')
+          console.log('paint')
           pixel.classList.add("draw-cursor")
           if (pixel.classList.contains("selected")) {
             let index = selection.indexOf(pixel.getAttribute('id'));
