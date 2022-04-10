@@ -73,15 +73,15 @@ document.addEventListener('mouseup', ()=>{
   // console.log(mouseDown)
 })
 
-document.addEventListener('touchstart', ()=>{
-  mouseDown = true;
-  console.log('touchstart')
-})
-
-document.addEventListener('touchend', ()=>{
-  mouseDown = false;
-  console.log('touchend')
-})
+// document.addEventListener('touchstart', ()=>{
+//   mouseDown = true;
+//   console.log('touchstart')
+// })
+//
+// document.addEventListener('touchend', ()=>{
+//   mouseDown = false;
+//   console.log('touchend')
+// })
 
 
 let displayCorrect = document.getElementById("display-correct");
@@ -203,9 +203,9 @@ for (let i = 0; i < pixels; i++) {
     }
     })
 
-    pixel.addEventListener('touchmove', function(event) {
-      console.log('touchmove')
-      if (drawMode && mouseDown){
+    pixel.addEventListener('touchstart', function(event) {
+      console.log('touchstart')
+      if (drawMode){
           console.log('paint')
           pixel.classList.add("draw-cursor")
           if (pixel.classList.contains("selected")) {
