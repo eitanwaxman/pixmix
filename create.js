@@ -28,6 +28,35 @@ let createGame = document.getElementById("create-grid");
 let nameInput = document.getElementById("name");
 let levelPic = document.getElementById("level-pic");
 
+//add draw mode
+let drawMode = false;
+let mouseDown = false;
+
+const drawButton = document.getElementById("draw-mode");
+drawButton.addEventListener('click', ()=>{
+  drawButton.classList.toggle("draw-mode-clicked")
+  if(drawMode){
+    drawMode = false;
+    message.classList.add('hidden');
+    document.body.classList.remove("draw-cursor")
+  }
+  else{
+    drawMode = true;
+    message.innerHTML = "Draw mode enabled! Click down and drag to select pixels."
+    message.classList.remove('hidden');
+    document.body.classList.add("draw-cursor")
+  }
+})
+
+document.addEventListener('mousedown', ()=>{
+  mouseDown = true;
+  // console.log("mousedown")
+})
+
+document.addEventListener('mouseup', ()=>{
+  mouseDown = false;
+  // console.log("mouseup")
+})
 
 createGame.addEventListener('click', function(){
 adj = gridSize.value;
@@ -67,6 +96,38 @@ for (let i = 0; i < pixels; i++) {
       }
     }
     setLevel()
+  })
+
+//drawMode
+
+  pixel.addEventListener('mouseover', function(event) {
+    // console.log('mouseover')
+    if (drawMode && mouseDown){
+        // console.log('paint')
+    pixel.classList.add("draw-cursor")
+    if (pixel.classList.contains("selected")) {
+      let index = selection.indexOf(pixel.getAttribute('id'));
+      if (index !== -1) {
+        selection.splice(index, 1)
+      }
+      pixel.classList.remove("selected");
+      totalSelected--
+      message.innerHTML = "Select pixels for your friends to find";
+    } else {
+      if ((pixels - totalSelected) > 0) {
+        pixel.classList.add("selected")
+        // console.log(pixel.getAttribute('id'))
+        totalSelected++
+        selection.push(pixel.getAttribute('id'))
+      } else {
+        message.innerHTML = "You have selected the max amount of pixels!"
+      }
+    }
+    setLevel()
+  }
+  else{
+    pixel.classList.remove("draw-cursor")
+  }
   })
   // console.log("pixel added")
 }

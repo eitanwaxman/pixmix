@@ -234,6 +234,7 @@ margin-top: 50px;
 
 #help{
   position: absolute;
+  width: 25px;
   top: 10px;
   right: 20px;
   cursor: pointer;
@@ -241,7 +242,22 @@ margin-top: 50px;
   padding: 10px;
   border-radius: 50%;
 }
+
 #help:hover{
+  background-color: blue;
+}
+
+.draw-mode{
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  cursor: pointer;
+  background-color: lightblue;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.draw-mode-clicked{
   background-color: blue;
 }
 
@@ -291,11 +307,17 @@ margin-top: 50px;
 #level-pic{
   font-size: 2rem;
 }
+
+.draw-cursor{
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:14px;'><text y='50%'>✏️</text></svg>")
+    16 0, auto;
+}
+
 @media screen and (max-width: 600px) {
   h1{
     margin-top: 10%;
   }
-  
+
   button {
     min-width: 250px;
     min-height: 70px;

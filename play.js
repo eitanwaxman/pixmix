@@ -39,8 +39,40 @@ let allAdjacent = [];
 
 let heading = document.querySelector('h1');
 heading.innerHTML = name + "'s PixMix"
-let message = document.getElementById("message");
+let message = document.getElementById("draw-mode-message");
+let drawModeMessage = document.getElementById("message");
 let guesses = document.getElementById("guesses");
+
+//add draw mode
+let drawMode = false;
+let mouseDown = false;
+
+const drawButton = document.getElementById("draw-mode");
+drawButton.addEventListener('click', ()=>{
+  drawButton.classList.toggle("draw-mode-clicked")
+  if(drawMode){
+    drawMode = false;
+    drawModeMessage.classList.add('hidden');
+    document.body.classList.remove("draw-cursor")
+  }
+  else{
+    drawMode = true;
+    drawModeMessage.innerHTML = "Draw mode enabled! Click down and drag to select pixels."
+    drawModeMessage.classList.remove('hidden');
+    document.body.classList.add("draw-cursor")
+  }
+})
+
+document.addEventListener('mousedown', ()=>{
+  mouseDown = true;
+  // console.log(mouseDown)
+})
+
+document.addEventListener('mouseup', ()=>{
+  mouseDown = false;
+  // console.log(mouseDown)
+})
+
 
 let displayCorrect = document.getElementById("display-correct");
 displayCorrect.addEventListener('click', function(){
@@ -128,6 +160,39 @@ for (let i = 0; i < pixels; i++) {
       }
     }
   })
+
+  //drawMode
+
+    pixel.addEventListener('mouseover', function(event) {
+      // console.log('mouseover')
+      if (drawMode && mouseDown){
+          // console.log('paint')
+          pixel.classList.add("draw-cursor")
+          if (pixel.classList.contains("selected")) {
+            let index = selection.indexOf(pixel.getAttribute('id'));
+            if (index !== -1) {
+              selection.splice(index, 1)
+            }
+            pixel.classList.remove("selected");
+            totalSelected--
+            message.innerHTML = "Select " + (game.length - totalSelected);
+          } else {
+            if ((game.length - totalSelected) > 0) {
+              pixel.classList.add("selected")
+              // console.log(pixel.getAttribute('id'))
+              totalSelected++
+              selection.push(pixel.getAttribute('id'))
+              message.innerHTML = "Select " + (game.length - totalSelected);
+            } else {
+              message.innerHTML = "You have selected the max amount of pixels for this puzzle!"
+            }
+          }
+    }
+    else{
+      pixel.classList.remove("draw-cursor")
+    }
+    })
+
   // console.log("pixel added")
 }
 
