@@ -68,6 +68,37 @@ document.addEventListener('touchend', ()=>{
   // console.log(mouseDown)
 })
 
+document.addEventListener('touchmove', (event)=>{
+// console.log(event, event.changedTouches[0].clientY)
+currentPixel = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY)
+let isPixel = currentPixel.classList.contains('pixel')
+// console.log(currentPixel)
+if(drawMode && isPixel){
+    // console.log('paint')
+    if (currentPixel.classList.contains("selected")) {
+      // let index = selection.indexOf(currentPixel.getAttribute('id'));
+      // if (index !== -1) {
+      //   selection.splice(index, 1)
+      // }
+      // currentPixel.classList.remove("selected");
+      // totalSelected--
+      // message.innerHTML = "Select pixels for your friends to find";
+    } else {
+      if ((pixels - totalSelected) > 0) {
+        currentPixel.classList.add("selected")
+        // console.log(pixel.getAttribute('id'))
+        totalSelected++
+        selection.push(currentPixel.getAttribute('id'))
+      } else {
+        message.innerHTML = "You have selected the max amount of pixels!"
+      }
+    }
+    setLevel()
+}
+})
+
+
+
 createGame.addEventListener('click', function(){
 adj = gridSize.value;
 pixels = Math.pow(adj, 2);
@@ -111,36 +142,6 @@ for (let i = 0; i < pixels; i++) {
 //drawMode
 
   pixel.addEventListener('mouseover', function(event) {
-    // console.log('mouseover')
-    if (drawMode && mouseDown){
-        // console.log('paint')
-    pixel.classList.add("draw-cursor")
-    if (pixel.classList.contains("selected")) {
-      let index = selection.indexOf(pixel.getAttribute('id'));
-      if (index !== -1) {
-        selection.splice(index, 1)
-      }
-      pixel.classList.remove("selected");
-      totalSelected--
-      message.innerHTML = "Select pixels for your friends to find";
-    } else {
-      if ((pixels - totalSelected) > 0) {
-        pixel.classList.add("selected")
-        // console.log(pixel.getAttribute('id'))
-        totalSelected++
-        selection.push(pixel.getAttribute('id'))
-      } else {
-        message.innerHTML = "You have selected the max amount of pixels!"
-      }
-    }
-    setLevel()
-  }
-  else{
-    pixel.classList.remove("draw-cursor")
-  }
-  })
-
-  pixel.addEventListener('touchmove', function(event) {
     // console.log('mouseover')
     if (drawMode && mouseDown){
         // console.log('paint')
