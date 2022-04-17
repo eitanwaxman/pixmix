@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name= "robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- General -->
+    <title>PixMix | Create</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="description" content="Create your own addictive pixel puzzle">
+    <meta name="keywords" content="puzzle, fun, pixel, wordle, game">
+    <!-- Search Engine -->
+    <meta name="description" content="Create your own addictive pixel puzzle">
+    <meta name="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="PixMix | Create">
+    <meta itemprop="description" content="Create your own addictive pixel puzzle">
+    <meta itemprop="image" content="https://www.pixmixs.com/images/pixmix.jpg">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="PixMix | Create">
+    <meta name="og:description" content="Create your own addictive pixel puzzle">
+    <meta name="og:image" content="https://www.pixmixs.com/images/pixmix.jpg">
+    <meta name="og:url" content="https://www.pixmixs.com/create">
+    <meta name="og:site_name" content="PixMix">
+    <meta name="og:type" content="website">
+
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+
+
+  <body>
+    <div class="flex-wrapper">
+    <h1>Create a PixMix</h1>
+    <p id="help">❔</p>
+    <p class="draw-mode" id="draw-mode">✏️</p>
+    <div class="hidden rules" id="rules">
+    <h3>How to create a PixMix</h3>
+    <p>Enter a grid size (bigger grid = bigger challange!)</p>
+    <p>Select the pixels you want your friend to find</p>
+    <br />
+    <p>Click "create" to save your selection</p>
+    <p>Copy the URL and share!</p>
+    <p>Enjoy :)</p>
+    </div>
+    <div class="input-wrapper" id="input-wrapper" >
+      <label for="name">Enter your name</label>
+      <input class="text-input" id="name" />
+      <label for="grid-size">Enter a number for grid size</label>
+      <input class="input" id="grid-size" />
+      <button id="create-grid">Create</button>
+    </div>
+    <p class="message hidden" id="message"></p>
+      <p class="hidden" id = "level-pic">Level 🤯</p>
+<div id="board-wrapper">
+  <div class="board" id="board"></div>
+  </div>
+  <input id="image-input" class="hidden" type="file" name="image">
+  <img id="display-image"/>
+  <canvas class ="hidden" id="canvas" width="100" height="100"></canvas>
+  <div id="button-wrapper">
+  <button class="hidden" id="submit">Submit</button>
+  </div>
+
+  <div class="nav">
+    <a href="/">Home</a>
+    <br />
+    <br />
+    <p id="copywrite">© PixMix 2022</p>
+  </div>
+</div>
+  <script type="text/javascript" src='image.js'></script>
+  <!-- <script type="text/javascript" src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script> -->
+  </body>
+</html>
