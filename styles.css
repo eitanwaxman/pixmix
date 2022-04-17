@@ -228,10 +228,20 @@ margin-top: 50px;
   opacity: 60%;
 }
 
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.canvas{
+  margin-left: 5px;
+}
+
 .hidden {
   display: none;
 }
-
 
 #help{
   position: absolute;

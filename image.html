@@ -51,13 +51,17 @@
       <button id="create-grid">Create</button>
     </div>
     <p class="message hidden" id="message"></p>
+    <div class="upload-image-wrapper">
+      <label id="image-input-label" for="image-input" class ="custom-file-upload hidden">⬆️ Upload an Image</label>
+          <input id="image-input" class="hidden" type="file"/>
+          <canvas class ="canvas" id="canvas" width="" height=""></canvas>
+    </div>
       <p class="hidden" id = "level-pic">Level 🤯</p>
 <div id="board-wrapper">
   <div class="board" id="board"></div>
   </div>
-  <input id="image-input" class="hidden" type="file" name="image">
-  <img id="display-image"/>
-  <canvas class ="hidden" id="canvas" width="100" height="100"></canvas>
+
+  <!-- <img id="display-image"/> -->
   <div id="button-wrapper">
   <button class="hidden" id="submit">Submit</button>
   </div>
